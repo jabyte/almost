@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  >
+	<head th:replace="fragments/header::head">
+		<title th:text="${title}">Transnova</title>
+	</head>
+	<body>
+		<nav th:replace="fragments/navbar::navbar"></nav>
+
+		<div style="margin-bottom: 70px"></div>
+		<!-- Content ends -->
+		<div class="container row">
+			<div class="col s12 m6 l6">
+				<form class="">
+					Origin:<br />
+					<select th:name="${station.name}">
+						<optgroup>
+							<option value="${station.stationId}" th:text="${station.name}"></option>
+						</optgroup>
+					</select>
+
+					Destination:<br />
+					<select th:name="${station.name}">
+						<optgroup>
+							<option value="${station.stationId}" th:text="${station.name}"></option>
+						</optgroup>
+					</select>
+
+					Travel Date:<br />
+					<input type="date" name="travelDate" />
+
+					Travel Time:<br />
+					<select>
+						<optgroup>
+							<option></option>
+						</optgroup>
+					</select>
+
+					<button class="button" type="submit">Book it</button>
+
+				</form>
+			</div>
+
+			<div class="col s12 m6 l6">
+
+			</div>
+		</div>
+		<!-- Content ends -->
+
+		<footer th:replace="fragments/footer :: footer"></footer>
+	</body>
+</html>

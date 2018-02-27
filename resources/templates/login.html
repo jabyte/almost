@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+		<title>Transnova | Login</title>
+
+		<link rel="stylesheet" type="text/css" media="screen" href="css/materialize.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+		<script src="js/jquery.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+
+	<body class="container blue-grey lighten-5" style="padding-top: 30px;">
+
+		<header>
+
+		</header>
+
+		<div class="row">
+			<h1 id="title" class="thin condensed light text-blue-grey center-align">LOGIN</h1>
+			<form method="post" style="padding: 50px;" class="col s4 offset-s4 white z-depth-3">
+				<p th:unless="${error}"></p>
+				<i class="material-icons prefix"></i>
+				<input type="text" name="phoneNumber" class="validate input-field" placeholder="Usernmae or Phone Number"/>
+
+				<i class="material-icons prefix"></i>
+				<input type="password" name="password" class="validate input-field" placeholder="Password"/>
+
+				<p>
+					<input type="checkbox" name="remember" id="remember"/>
+					<label for="remember" id="checkbox">Remember me</label>
+				</p>
+
+
+				<div class="row">
+					<div class="col s12 m6 l6">
+						<button class="waves-effect waves-light btn blue-grey" type="submit">Login</button>
+					</div>
+
+					<div class="input-field col s12 m6 l6">
+						<a href="signup" class="right-align">Create an account.</a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<footer class="">
+
+		</footer>
+
+	</body>
+</html>

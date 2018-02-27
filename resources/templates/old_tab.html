@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+	<head th:replace="fragments/header::head"></head>
+	<nav th:replace="fragments/navbar::navbar"></nav>
+	<div th:replace="fragments/banner::banner"></div>
+
+	<!-- Content -->
+	<!-- Content -->
+	<div class="row">
+		<div class="col s12">
+			<ul class="tabs tabs-fixed-width">
+				<li class="tab col s3"><a class="active" href="#profile">Profile</a></li>
+				<li class="tab col s3"><a href="#tickets">Tickets</a></li>
+				<li class="tab col s3"><a href="#payments">Payments</a></li>
+				<li class="tab col s3"><a href="#notifications">Notifications</a></li>
+			</ul>
+		</div>
+		<div id="profile" class="col s12">Profile</div>
+		<div id="tickets" class="col s12">Tickets</div>
+		<div id="payments" class="col s12">Payments</div>
+		<div id="notifications" class="col s12">Notifications</div>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			$('ul.tabs').tabs();
+		});
+		$(document).ready(function () {
+			$('ul.tabs').tabs('select_tab', 'tab_id');
+		});
+	</script>
+	<!-- Content ends -->
+	<!-- Content ends -->
+
+	<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

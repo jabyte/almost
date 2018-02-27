@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+	<head th:replace="fragments/header::head"></head>
+	<body>
+		<nav th:replace="fragments/navbar::navbar"></nav>
+
+		<!-- Contents -->
+		<div class="container">
+			<div class="center-align">
+				<h1 class="title thin condensed">SIGN UP</h1>
+				<h5 class="subheader thin condensed center-align">Fill in your details to get started.</h5>
+			</div>
+			<div class="row">
+				<form action="signup" method="post" class="col s12 m6 l6 offset-m3 offset-l3" th:object="${customer}">
+					<div class="row">
+						<div class="input-field col s12 m4 l4">
+							<input th:field="*{firstName}" placeholder="First Name" />
+						</div>
+						<div class="input-field col s12 m4 l4">
+							<input th:field="*{middleName}" placeholder="Middle Name" />
+						</div>
+						<div class="input-field col s12 m4 l4">
+							<input th:field="*{lastName}" placeholder="Last Name" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input th:field="*{phoneNumber}" placeholder="Phone Number" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input th:field="*{password}" type="password" placeholder="Password" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="repassword" type="password" placeholder="Repeat Password" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col s12 m6 l6">
+							<button class="waves-effect waves-light btn blue-grey" type="submit">Sign Up</button>
+						</div>
+
+						<div class="input-field col s12 m6 l6">
+							<a href="login" class="right-align">Already have an account? Login here.</a>
+						</div>
+					</div>
+
+				</form>
+				<div class="col m6 l6"></div>
+			</div>
+		</div>
+		<!-- -->
+
+		<!-- Footer Starts Here -->
+		<footer th:replace="fragments/footer :: footer"></footer>
+	</body>
+</html>

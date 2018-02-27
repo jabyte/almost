@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TODO supply a title</title>
+		<link rel="stylesheet" href="css/materialize.css" type="text/css"/>
+	</head>
+	<body class="container">
+		<div class="row">
+			<table class="col s12 m10 l8 offset-l2">
+				<thead>
+					<tr>
+						<th>Station Id</th>
+						<th>Station Name</th>
+						<th>Station Address</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="station : ${stations}">
+						<td th:text="${station.stationId}"></td>
+						<td th:text="${station.stationName}"></td>
+						<td th:text="${station.stationAddress}"></td>
+					</tr>
+				</tbody>
+
+				<tfoot>
+					<tr>
+						<td>Total number of <span th:text="${stations.size()}"></span> stations.</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</body>
+</html>

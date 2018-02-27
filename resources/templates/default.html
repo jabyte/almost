@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  >
+	<head th:replace="fragments/header::head">
+		<title th:text="${title}">Transnova</title>
+	</head>
+	<body>
+		<!-- Content ends -->
+
+		<nav th:replace="fragments/navbar::navbar"></nav>
+		<div class="container row">
+			<div class="center-align">
+				<h1 class="title thin condensed">DESCRIPTION</h1>
+			</div>
+
+		</div>
+		<!-- Content ends -->
+
+		<footer th:replace="fragments/footer :: footer"></footer>
+	</body>
+</html>
