@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  >
+	<head th:replace="fragments/header::head">
+		<title th:text="${title}">Transnova</title>
+	</head>
+	<body>
+		<!-- Content ends -->
+
+		<div class="container row">
+			<div class="center-align">
+				<h4 class="title condensed">NEW TRIP</h4>
+			</div>
+
+			<div class="row">
+				<p class="small" th:unless="${errors}"></p>
+			</div>
+			<!--			th:field="*{stationName}"
+						th:field="*{stationAddress}"
+			th:object="${station}"
+			-->
+			<form method="post" th:object="${trip}">
+				Origin:<br />
+				<select>
+					<option>-Select Origin Station-</option>
+					<!--<label th:for="*{station.name}" th:text="${station.name}"></label>-->
+					<option th:value="${trip.id}" th:text="${trip.name}"></option>
+				</select>
+
+				Destination:<br />
+				<select>
+					<option>-Select Origin Station-</option>
+					<!--<label th:for="*{station.name}" th:text="${station.name}"></label>-->
+					<option th:value="${trip.id}" th:text="${trip.name}"></option>
+				</select>
+
+				Trip Fare:<br />
+				<input th:field="*{tripPrice}" placeholder="Trip Fare" />
+				Departure Time:<br />
+				<input th:field="*{tripTime}" placeholder="Departure Time" />
+				<input class="waves-button-input" type="submit" value="Add Trip"/>
+			</form>
+
+		</div>
+		<!-- Content ends -->
+
+	</body>
+</html>
