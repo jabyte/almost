@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ng.transnova.repository.CustomerRepository;
 import ng.transnova.repository.PaymentRepository;
 import ng.transnova.repository.TicketRepository;
-import org.springframework.validation.Errors;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Controller
 @RequestMapping(value = "login")
@@ -35,16 +35,14 @@ public class LoginController
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String handleAuthentication(Model model, @RequestParam String phoneNumber, @RequestParam String password, Errors errors)
+	public String handleAuthentication(Model model, @RequestParam String phoneNumber, @RequestParam String password)
 	{
-		password = Customer.getSHA512SecurePassword(password);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		password = encoder.encode(password);
 		Customer customer = customerRepository.findByPhoneNumberAndPassword(phoneNumber, password);
 
-		if (errors.hasErrors()) {
-			model.addAttribute("error", errors);
-			return "login";
-		} else if (customer == null) {
-			model.addAttribute("error", "Username or password incorrect.");
+		if (customer == null) {
+			model.addAttribute("errors", "Username or password incorrect.");
 			return "login";
 		} else {
 			model.addAttribute("customer", customer);
